@@ -8,9 +8,12 @@ require("dotenv/config");
 app.use(express.json());
 app.use(cors());
 app.use("/tasks", tasksroutes);
-mongoose.connect(process.env.MONGO_URI, () => {
-  console.log("Database Connected");
-});
+mongoose.connect(
+  `mongodb+srv://${process.env.USER}:${process.env.PASS}@${process.env.URL}/myFirstDatabase?retryWrites=true&w=majority`,
+  () => {
+    console.log("Database Connected");
+  }
+);
 app.use("/login", loginroutes);
 const PORT = 5000;
 
