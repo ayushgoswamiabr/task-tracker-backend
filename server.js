@@ -7,16 +7,16 @@ const loginroutes = require("./routes/login");
 require("dotenv/config");
 app.use(express.json());
 app.use(cors());
-app.use("/tasks", tasksroutes);
 mongoose
   .connect(process.eventNames.URL, {
-    useNewUrlParser: true,
     useCreateIndex: true,
+    useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   }) // Adding new mongo url parser
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
-
+app.use("/tasks", tasksroutes);
 app.use("/login", loginroutes);
 const PORT = process.env.PORT || 5000;
 //Serve static assests
