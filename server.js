@@ -8,17 +8,15 @@ require("dotenv/config");
 app.use(express.json());
 app.use(cors());
 app.use("/tasks", tasksroutes);
-mongoose.connect(
-  process.env.URL,
-  {
+mongoose
+  .connect(process.eventNames.URL, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
-  },
-  () => {
-    console.log("Database Connected");
-  }
-);
+  }) // Adding new mongo url parser
+  .then(() => console.log("MongoDB Connected..."))
+  .catch((err) => console.log(err));
+
 app.use("/login", loginroutes);
 const PORT = process.env.PORT || 5000;
 //Serve static assests
