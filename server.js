@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/tasks", tasksroutes);
 mongoose.connect(
-  `mongodb+srv://${process.env.USER}:${process.env.PASS}@${process.env.URL}/myFirstDatabase?retryWrites=true&w=majority`,
+  process.env.URL,
   {
     useNewUrlParser: true,
     useCreateIndex: true,
