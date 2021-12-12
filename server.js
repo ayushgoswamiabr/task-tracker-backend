@@ -20,7 +20,7 @@ mongoose.connect(
   }
 );
 app.use("/login", loginroutes);
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 //Serve static assests
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
