@@ -9,10 +9,8 @@ app.use(express.json());
 app.use(cors());
 mongoose
   .connect(process.env.URL, {
-    useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false,
   }) // Adding new mongo url parser
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
