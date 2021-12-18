@@ -8,7 +8,7 @@ require("dotenv/config");
 app.use(express.json());
 app.use(cors());
 mongoose
-  .connect(process.eventNames.URL, {
+  .connect(process.env.URL, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
